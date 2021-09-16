@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: ecomnode 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ecomnode
+  template:
+    metadata:
+      labels:
+        app: ecomnode 
+    spec:
+      containers:
+        - name: ecomnode 
+          image: registerme123.azurecr.io/ecomnodeserver:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 4500
